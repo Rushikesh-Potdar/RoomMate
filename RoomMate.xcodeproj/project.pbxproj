@@ -1,0 +1,541 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3D1FFFFF28A643EB00132A79 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1FFFFE28A643EB00132A79 /* PostViewController.swift */; };
+		3D28E8DB28F0051800DFF587 /* PostListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D28E8DA28F0051800DFF587 /* PostListController.swift */; };
+		3D28E8DD28F00D4900DFF587 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D28E8DC28F00D4900DFF587 /* PostCell.swift */; };
+		3D28E8DF28F025C300DFF587 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D28E8DE28F025C300DFF587 /* GoogleService-Info.plist */; };
+		3D49F06B28F87B93009E55CA /* PhotoesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D49F06A28F87B93009E55CA /* PhotoesController.swift */; };
+		3D49F06D28F87C10009E55CA /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D49F06C28F87C10009E55CA /* PhotoCell.swift */; };
+		3DAC361E28F2FBB600C6B79F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC361D28F2FBB600C6B79F /* Post.swift */; };
+		3DAC362128F309B600C6B79F /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC362028F309B600C6B79F /* PostViewModel.swift */; };
+		9427792CAABC81473ADB0F8D /* Pods_RoomMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BDE12CF50325E3D2A76A42F /* Pods_RoomMate.framework */; };
+		D236305428F5680100643D87 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D236305328F5680100643D87 /* CustomAlert.swift */; };
+		D253FC8B28A159F4001CBFFF /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253FC8A28A159F4001CBFFF /* DashboardViewController.swift */; };
+		D27B4B4E289A9F3200326F82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27B4B4D289A9F3200326F82 /* AppDelegate.swift */; };
+		D27B4B50289A9F3200326F82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27B4B4F289A9F3200326F82 /* SceneDelegate.swift */; };
+		D27B4B52289A9F3200326F82 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27B4B51289A9F3200326F82 /* LoginViewController.swift */; };
+		D27B4B55289A9F3200326F82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D27B4B53289A9F3200326F82 /* Main.storyboard */; };
+		D27B4B57289A9F3300326F82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D27B4B56289A9F3300326F82 /* Assets.xcassets */; };
+		D27B4B5A289A9F3300326F82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D27B4B58289A9F3300326F82 /* LaunchScreen.storyboard */; };
+		D27B4B65289AAF0B00326F82 /* UIExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27B4B64289AAF0B00326F82 /* UIExtentions.swift */; };
+		D2979716289C1826009EE390 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2979715289C1826009EE390 /* SignUpViewController.swift */; };
+		D2D3FB5828F41FF800C1652A /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D3FB5728F41FF800C1652A /* Validation.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2C57765B379D4186E5425796 /* Pods-RoomMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomMate.debug.xcconfig"; path = "Target Support Files/Pods-RoomMate/Pods-RoomMate.debug.xcconfig"; sourceTree = "<group>"; };
+		3D1FFFFE28A643EB00132A79 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		3D28E8DA28F0051800DFF587 /* PostListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListController.swift; sourceTree = "<group>"; };
+		3D28E8DC28F00D4900DFF587 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		3D28E8DE28F025C300DFF587 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3D49F06A28F87B93009E55CA /* PhotoesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoesController.swift; path = ../../../../Downloads/PhotoesController.swift; sourceTree = "<group>"; };
+		3D49F06C28F87C10009E55CA /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoCell.swift; path = ../../../../Downloads/PhotoCell.swift; sourceTree = "<group>"; };
+		3DAC361D28F2FBB600C6B79F /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		3DAC362028F309B600C6B79F /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		6BDE12CF50325E3D2A76A42F /* Pods_RoomMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoomMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C33D315802AC160D51BEE21 /* Pods-RoomMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomMate.release.xcconfig"; path = "Target Support Files/Pods-RoomMate/Pods-RoomMate.release.xcconfig"; sourceTree = "<group>"; };
+		D236305328F5680100643D87 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		D253FC8A28A159F4001CBFFF /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		D27B4B4A289A9F3200326F82 /* RoomMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoomMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D27B4B4D289A9F3200326F82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D27B4B4F289A9F3200326F82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D27B4B51289A9F3200326F82 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D27B4B54289A9F3200326F82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D27B4B56289A9F3300326F82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D27B4B59289A9F3300326F82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D27B4B5B289A9F3300326F82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D27B4B64289AAF0B00326F82 /* UIExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtentions.swift; sourceTree = "<group>"; };
+		D2979715289C1826009EE390 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		D2D3FB5728F41FF800C1652A /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D27B4B47289A9F3200326F82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9427792CAABC81473ADB0F8D /* Pods_RoomMate.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3D1FFFFC28A642D000132A79 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D27B4B51289A9F3200326F82 /* LoginViewController.swift */,
+				D2979715289C1826009EE390 /* SignUpViewController.swift */,
+				D253FC8A28A159F4001CBFFF /* DashboardViewController.swift */,
+				3D1FFFFE28A643EB00132A79 /* PostViewController.swift */,
+				3D28E8DA28F0051800DFF587 /* PostListController.swift */,
+				3D49F06A28F87B93009E55CA /* PhotoesController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3D1FFFFD28A6439E00132A79 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D27B4B53289A9F3200326F82 /* Main.storyboard */,
+				D27B4B58289A9F3300326F82 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3DAC361C28F2FB6B00C6B79F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3DAC361D28F2FBB600C6B79F /* Post.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3DAC361F28F3098A00C6B79F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3DAC362028F309B600C6B79F /* PostViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3DAC362228F317DE00C6B79F /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				3D28E8DC28F00D4900DFF587 /* PostCell.swift */,
+				3D49F06C28F87C10009E55CA /* PhotoCell.swift */,
+				D236305328F5680100643D87 /* CustomAlert.swift */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
+		D27B4B41289A9F3200326F82 = {
+			isa = PBXGroup;
+			children = (
+				D27B4B4C289A9F3200326F82 /* RoomMate */,
+				D27B4B4B289A9F3200326F82 /* Products */,
+				D8F65338766BFA9559EDBF1B /* Pods */,
+				FA1527BF65DBC7177A1CD69C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D27B4B4B289A9F3200326F82 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D27B4B4A289A9F3200326F82 /* RoomMate.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D27B4B4C289A9F3200326F82 /* RoomMate */ = {
+			isa = PBXGroup;
+			children = (
+				D2D3FB5628F41FD100C1652A /* Utility */,
+				D27B4B4D289A9F3200326F82 /* AppDelegate.swift */,
+				D27B4B4F289A9F3200326F82 /* SceneDelegate.swift */,
+				3DAC361C28F2FB6B00C6B79F /* Model */,
+				3D1FFFFD28A6439E00132A79 /* View */,
+				3DAC361F28F3098A00C6B79F /* ViewModel */,
+				3DAC362228F317DE00C6B79F /* UIElements */,
+				3D1FFFFC28A642D000132A79 /* Controllers */,
+				D27B4B63289AAEE000326F82 /* UIExtentions */,
+				D27B4B56289A9F3300326F82 /* Assets.xcassets */,
+				D27B4B5B289A9F3300326F82 /* Info.plist */,
+				3D28E8DE28F025C300DFF587 /* GoogleService-Info.plist */,
+			);
+			path = RoomMate;
+			sourceTree = "<group>";
+		};
+		D27B4B63289AAEE000326F82 /* UIExtentions */ = {
+			isa = PBXGroup;
+			children = (
+				D27B4B64289AAF0B00326F82 /* UIExtentions.swift */,
+			);
+			path = UIExtentions;
+			sourceTree = "<group>";
+		};
+		D2D3FB5628F41FD100C1652A /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				D2D3FB5728F41FF800C1652A /* Validation.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		D8F65338766BFA9559EDBF1B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2C57765B379D4186E5425796 /* Pods-RoomMate.debug.xcconfig */,
+				9C33D315802AC160D51BEE21 /* Pods-RoomMate.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FA1527BF65DBC7177A1CD69C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6BDE12CF50325E3D2A76A42F /* Pods_RoomMate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D27B4B49289A9F3200326F82 /* RoomMate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D27B4B5E289A9F3300326F82 /* Build configuration list for PBXNativeTarget "RoomMate" */;
+			buildPhases = (
+				45F028D43ECC32A3FCE7C563 /* [CP] Check Pods Manifest.lock */,
+				D27B4B46289A9F3200326F82 /* Sources */,
+				D27B4B47289A9F3200326F82 /* Frameworks */,
+				D27B4B48289A9F3200326F82 /* Resources */,
+				0B6F5FFF45E897C32581430F /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RoomMate;
+			productName = RoomMate;
+			productReference = D27B4B4A289A9F3200326F82 /* RoomMate.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D27B4B42289A9F3200326F82 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					D27B4B49289A9F3200326F82 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = D27B4B45289A9F3200326F82 /* Build configuration list for PBXProject "RoomMate" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D27B4B41289A9F3200326F82;
+			productRefGroup = D27B4B4B289A9F3200326F82 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D27B4B49289A9F3200326F82 /* RoomMate */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D27B4B48289A9F3200326F82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D27B4B5A289A9F3300326F82 /* LaunchScreen.storyboard in Resources */,
+				3D28E8DF28F025C300DFF587 /* GoogleService-Info.plist in Resources */,
+				D27B4B57289A9F3300326F82 /* Assets.xcassets in Resources */,
+				D27B4B55289A9F3200326F82 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B6F5FFF45E897C32581430F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoomMate/Pods-RoomMate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoomMate/Pods-RoomMate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoomMate/Pods-RoomMate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		45F028D43ECC32A3FCE7C563 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RoomMate-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D27B4B46289A9F3200326F82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D27B4B65289AAF0B00326F82 /* UIExtentions.swift in Sources */,
+				3D49F06D28F87C10009E55CA /* PhotoCell.swift in Sources */,
+				3D28E8DB28F0051800DFF587 /* PostListController.swift in Sources */,
+				D253FC8B28A159F4001CBFFF /* DashboardViewController.swift in Sources */,
+				3D1FFFFF28A643EB00132A79 /* PostViewController.swift in Sources */,
+				D27B4B52289A9F3200326F82 /* LoginViewController.swift in Sources */,
+				3D28E8DD28F00D4900DFF587 /* PostCell.swift in Sources */,
+				3D49F06B28F87B93009E55CA /* PhotoesController.swift in Sources */,
+				D27B4B4E289A9F3200326F82 /* AppDelegate.swift in Sources */,
+				3DAC362128F309B600C6B79F /* PostViewModel.swift in Sources */,
+				D27B4B50289A9F3200326F82 /* SceneDelegate.swift in Sources */,
+				D2979716289C1826009EE390 /* SignUpViewController.swift in Sources */,
+				D236305428F5680100643D87 /* CustomAlert.swift in Sources */,
+				D2D3FB5828F41FF800C1652A /* Validation.swift in Sources */,
+				3DAC361E28F2FBB600C6B79F /* Post.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D27B4B53289A9F3200326F82 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D27B4B54289A9F3200326F82 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D27B4B58289A9F3300326F82 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D27B4B59289A9F3300326F82 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D27B4B5C289A9F3300326F82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D27B4B5D289A9F3300326F82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D27B4B5F289A9F3300326F82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C57765B379D4186E5425796 /* Pods-RoomMate.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RoomMate/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Yash.RoomMate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D27B4B60289A9F3300326F82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C33D315802AC160D51BEE21 /* Pods-RoomMate.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RoomMate/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Yash.RoomMate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D27B4B45289A9F3200326F82 /* Build configuration list for PBXProject "RoomMate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D27B4B5C289A9F3300326F82 /* Debug */,
+				D27B4B5D289A9F3300326F82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D27B4B5E289A9F3300326F82 /* Build configuration list for PBXNativeTarget "RoomMate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D27B4B5F289A9F3300326F82 /* Debug */,
+				D27B4B60289A9F3300326F82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D27B4B42289A9F3200326F82 /* Project object */;
+}

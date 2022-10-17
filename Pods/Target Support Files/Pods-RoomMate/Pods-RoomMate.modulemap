@@ -1,0 +1,6 @@
+framework module Pods_RoomMate {
+  umbrella header "Pods-RoomMate-umbrella.h"
+
+  export *
+  module * { export * }
+}
