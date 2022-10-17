@@ -27,7 +27,7 @@ class PostViewModel{
     }
     
     func addNewPost(post : Post,complition:@escaping (Bool)->()){
-        db.collection("Posts").addDocument(data: ["address" : post.address, "amenities" : post.amenities, "apt_name" : post.appartmentName, "city" : post.city, "ext_roommates" : post.existingRoommates, "req_roommates" : post.requiredRoommates, "monthly_rent" : post.monthlyRent, "photos_url" : ["google.com", "google2.com"], "pincode" : post.pincode, "state" : post.state, "mobile" : post.mobile, "email" : post.email]) { err in
+        db.collection("Posts").addDocument(data: ["address" : post.address, "amenities" : post.amenities, "apt_name" : post.appartmentName, "city" : post.city, "ext_roommates" : post.existingRoommates, "req_roommates" : post.requiredRoommates, "monthly_rent" : post.monthlyRent, "photos_url" : post.photos, "pincode" : post.pincode, "state" : post.state, "mobile" : post.mobile, "email" : post.email]) { err in
             if err == nil{
                 //print("record has been added successfuly over the FB")
                 complition(true)
@@ -73,7 +73,7 @@ class PostViewModel{
         let storage = Storage.storage()
         let randomUUID = UUID.init().uuidString
         let storageRef = storage.reference(withPath: "Photos/").child("\(randomUUID).jpeg")
-        guard let imageData = selectedImage.jpegData(compressionQuality: 0.75) else {return}
+        guard let imageData = selectedImage.jpegData(compressionQuality: 0.25) else {return}
         let uploadMetadata = StorageMetadata.init()
         uploadMetadata.contentType = "image/jpeg"
         
@@ -100,6 +100,24 @@ class PostViewModel{
         }
         alert.addAction(cancelUploading)
         vc.present(alert, animated: true)
-
+        
+    }
+    
+    func downloadImage(with url : String, complition : @escaping (UIImage, Error?)->()) {
+        let image = UIImage(named: "CorrptedImage")
+        let storage = Storage.storage()
+        let fsReferance = storage.reference(forURL:"https://firebasestorage.googleapis.com/v0/b/roommate-3dfa6.appspot.com/o/Photos%2FFF60C403-AAB4-4B7A-B013-07FA0A299DA5.jpeg?alt=media&token=5e953401-ea14-4ba8-8cc1-9d1f8f17f93d")
+        fsReferance.getData(maxSize: 3 * 1024 * 1024) { imageData, error in
+            if error == nil
+            {
+                print(imageData)
+                complition(UIImage(data: imageData!)!, nil)
+            }
+            else
+            {
+                print(error?.localizedDescription)
+                complition(image!, error!)
+            }
+        }
     }
 }

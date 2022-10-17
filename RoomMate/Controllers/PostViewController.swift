@@ -61,9 +61,7 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         navigationController?.popViewController(animated: true)
     }
     @IBAction func postButtonPressed(_ sender: UIButton) {
-        
         checkInputs()
-        
     }
     
     let stateList = ["- State -","MH", "GA", "GJ", "MP", "UP", "DL", "KL", "KA"]
@@ -136,7 +134,7 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
             let email = Auth.auth().currentUser?.email!
             print(email!)
             
-            postVM.addNewPost(post: Post(appartmentName: aptNameTextField.text!, amenities: amminitiesTextField.text!, address: addressTextField.text!, city: cityTextField.text!, state: stateTextField.text!, pincode: pincodeTextField.text!, existingRoommates: existingRoommateTextField.text!, requiredRoommates: requiredRoommateTextField.text!, monthlyRent: monthlyRentTextField.text!, photos: ["google.com"], mobile: mobileTextField.text!, email: email!, time: date!)) { done in
+            postVM.addNewPost(post: Post(appartmentName: aptNameTextField.text!, amenities: amminitiesTextField.text!, address: addressTextField.text!, city: cityTextField.text!, state: stateTextField.text!, pincode: pincodeTextField.text!, existingRoommates: existingRoommateTextField.text!, requiredRoommates: requiredRoommateTextField.text!, monthlyRent: monthlyRentTextField.text!, photos: phototUrls, mobile: mobileTextField.text!, email: email!, time: date!)) { done in
                 if done{
                     print("new record has been added sucessfully...")
                 }else{
