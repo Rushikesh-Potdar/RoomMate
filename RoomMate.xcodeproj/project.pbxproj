@@ -11,8 +11,8 @@
 		3D28E8DB28F0051800DFF587 /* PostListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D28E8DA28F0051800DFF587 /* PostListController.swift */; };
 		3D28E8DD28F00D4900DFF587 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D28E8DC28F00D4900DFF587 /* PostCell.swift */; };
 		3D28E8DF28F025C300DFF587 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D28E8DE28F025C300DFF587 /* GoogleService-Info.plist */; };
-		3D49F06B28F87B93009E55CA /* PhotoesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D49F06A28F87B93009E55CA /* PhotoesController.swift */; };
-		3D49F06D28F87C10009E55CA /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D49F06C28F87C10009E55CA /* PhotoCell.swift */; };
+		3D6F4B9B28FD35BD002D175C /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F4B9A28FD35BD002D175C /* PhotoViewCell.swift */; };
+		3D6F4B9D28FD35F1002D175C /* PhotoCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6F4B9C28FD35F1002D175C /* PhotoCollectionController.swift */; };
 		3DAC361E28F2FBB600C6B79F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC361D28F2FBB600C6B79F /* Post.swift */; };
 		3DAC362128F309B600C6B79F /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC362028F309B600C6B79F /* PostViewModel.swift */; };
 		9427792CAABC81473ADB0F8D /* Pods_RoomMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BDE12CF50325E3D2A76A42F /* Pods_RoomMate.framework */; };
@@ -35,8 +35,8 @@
 		3D28E8DA28F0051800DFF587 /* PostListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListController.swift; sourceTree = "<group>"; };
 		3D28E8DC28F00D4900DFF587 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		3D28E8DE28F025C300DFF587 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		3D49F06A28F87B93009E55CA /* PhotoesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoesController.swift; path = ../../../../Downloads/PhotoesController.swift; sourceTree = "<group>"; };
-		3D49F06C28F87C10009E55CA /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoCell.swift; path = ../../../../Downloads/PhotoCell.swift; sourceTree = "<group>"; };
+		3D6F4B9A28FD35BD002D175C /* PhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
+		3D6F4B9C28FD35F1002D175C /* PhotoCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionController.swift; sourceTree = "<group>"; };
 		3DAC361D28F2FBB600C6B79F /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		3DAC362028F309B600C6B79F /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		6BDE12CF50325E3D2A76A42F /* Pods_RoomMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoomMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,7 +76,7 @@
 				D253FC8A28A159F4001CBFFF /* DashboardViewController.swift */,
 				3D1FFFFE28A643EB00132A79 /* PostViewController.swift */,
 				3D28E8DA28F0051800DFF587 /* PostListController.swift */,
-				3D49F06A28F87B93009E55CA /* PhotoesController.swift */,
+				3D6F4B9C28FD35F1002D175C /* PhotoCollectionController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -110,8 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				3D28E8DC28F00D4900DFF587 /* PostCell.swift */,
-				3D49F06C28F87C10009E55CA /* PhotoCell.swift */,
 				D236305328F5680100643D87 /* CustomAlert.swift */,
+				3D6F4B9A28FD35BD002D175C /* PhotoViewCell.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -303,13 +303,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D27B4B65289AAF0B00326F82 /* UIExtentions.swift in Sources */,
-				3D49F06D28F87C10009E55CA /* PhotoCell.swift in Sources */,
+				3D6F4B9B28FD35BD002D175C /* PhotoViewCell.swift in Sources */,
 				3D28E8DB28F0051800DFF587 /* PostListController.swift in Sources */,
 				D253FC8B28A159F4001CBFFF /* DashboardViewController.swift in Sources */,
 				3D1FFFFF28A643EB00132A79 /* PostViewController.swift in Sources */,
 				D27B4B52289A9F3200326F82 /* LoginViewController.swift in Sources */,
 				3D28E8DD28F00D4900DFF587 /* PostCell.swift in Sources */,
-				3D49F06B28F87B93009E55CA /* PhotoesController.swift in Sources */,
+				3D6F4B9D28FD35F1002D175C /* PhotoCollectionController.swift in Sources */,
 				D27B4B4E289A9F3200326F82 /* AppDelegate.swift in Sources */,
 				3DAC362128F309B600C6B79F /* PostViewModel.swift in Sources */,
 				D27B4B50289A9F3200326F82 /* SceneDelegate.swift in Sources */,

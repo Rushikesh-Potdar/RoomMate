@@ -53,7 +53,7 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     }
     
     @IBAction func viewPhotoButton(_ sender: UIButton) {
-        guard let photoVC = storyboard?.instantiateViewController(withIdentifier: "PhotoesController") as? PhotoesController else{return}
+        guard let photoVC = storyboard?.instantiateViewController(withIdentifier: "PhotoCollectionController") as? PhotoCollectionController else{return}
         photoVC.photos = photos
         navigationController?.pushViewController(photoVC, animated: true)
     }

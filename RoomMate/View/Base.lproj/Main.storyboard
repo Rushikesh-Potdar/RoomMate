@@ -1016,10 +1016,10 @@
             </objects>
             <point key="canvasLocation" x="5965.6000000000004" y="133.5832083958021"/>
         </scene>
-        <!--Photoes Controller-->
+        <!--Photo Collection Controller-->
         <scene sceneID="Twz-8K-GWV">
             <objects>
-                <viewController storyboardIdentifier="PhotoesController" id="Jai-3r-nCX" customClass="PhotoesController" customModule="RoomMate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotoCollectionController" id="Jai-3r-nCX" customClass="PhotoCollectionController" customModule="RoomMate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wCL-yX-dNS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1034,7 +1034,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="OlJ-kO-tVv" customClass="PhotoCell" customModule="RoomMate" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoViewCell" id="OlJ-kO-tVv" customClass="PhotoViewCell" customModule="RoomMate" customModuleProvider="target">
                                         <rect key="frame" x="87.5" y="0.0" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sP3-y5-7i5">
@@ -1049,7 +1049,7 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="200" height="200"/>
                                         <connections>
-                                            <outlet property="photo" destination="yLw-JJ-nVH" id="wAQ-z3-Moh"/>
+                                            <outlet property="photo" destination="yLw-JJ-nVH" id="jCj-bx-FUN"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -1065,7 +1065,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="photoCollection" destination="nfF-bb-8fV" id="Vhl-ea-Hr6"/>
+                        <outlet property="photoCollection" destination="nfF-bb-8fV" id="fCU-yQ-fac"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kM1-QT-owa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
