@@ -9,14 +9,19 @@ import UIKit
 import FirebaseAuth
 
 class LoginViewController: UIViewController {
-
+    let loader = Loader(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
+        loader.isHidden = false
+        self.view.addSubview(loader)
+        loader.startAnimatngLoader()
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { authResult, error in
             if error == nil{
+                self.loader.stopAnimatingLoader()
                 guard let dashboardVC = self.storyboard?.instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController else{return}
                 self.navigationController?.pushViewController(dashboardVC, animated: true)
             }else{
@@ -34,6 +39,11 @@ class LoginViewController: UIViewController {
         UIExtentions.roundTextFieldWithShadow(textField: passwordTextField)
         UIExtentions.roundedButtonWithShadow(button: loginButton)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loader.isHidden = true
     }
 
     @IBAction func forgotPasswordBtnTapped(_ sender: UIButton) {
