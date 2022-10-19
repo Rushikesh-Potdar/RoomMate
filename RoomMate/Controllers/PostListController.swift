@@ -8,6 +8,7 @@
 import UIKit
 
 class PostListController: UIViewController {
+    let loader = Loader(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
 
     @IBOutlet weak var postTable: UITableView!
     
@@ -34,15 +35,25 @@ class PostListController: UIViewController {
         super.viewWillAppear(animated)
         if isFromMyPost{
             self.title = "My Post"
+            loader.isHidden = false
+            self.view.addSubview(loader)
+            loader.startAnimatngLoader()
             postVM.getCurrentUserPosts { arrayOfPosts in
                 self.posts.append(contentsOf: arrayOfPosts)
+                self.loader.stopAnimatingLoader()
+                self.loader.isHidden = true
                 DispatchQueue.main.async {
                     self.postTable.reloadData()
                 }
             }
         }else{
+            loader.isHidden = false
+            self.view.addSubview(loader)
+            loader.startAnimatngLoader()
             postVM.getAllPost { arrayOfPosts in
                 self.posts.append(contentsOf: arrayOfPosts)
+                self.loader.stopAnimatingLoader()
+                self.loader.isHidden = true
                 DispatchQueue.main.async {
                     self.postTable.reloadData()
                 }
