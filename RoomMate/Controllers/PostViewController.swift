@@ -146,12 +146,12 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
             if Validation.isValidAptName(aptname: aptNameTextField.text!) == false{
                 aptNameTextField.layer.borderWidth = 1.2
                 aptNameTextField.layer.borderColor = UIColor.red.cgColor
-                msg = msg + "appartment name is not valid. \n"
+                msg = msg + "appartment name is not valid, appartment name should be contains atleast 3 characters and maximum 20 characters \n"
             }
             if Validation.isValidPincode(pincode: pincodeTextField.text!) == false{
                 pincodeTextField.layer.borderWidth = 1.2
                 pincodeTextField.layer.borderColor = UIColor.red.cgColor
-                msg = msg + "pincode is invalid . \n"
+                msg = msg + "pincode is invalid, pincode must contains 6 digit . \n"
             }
             if Validation.isValidAddress(address: addressTextField.text!) == false{
                 addressTextField.layer.borderWidth = 1.2
@@ -161,7 +161,7 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
             if Validation.isValidMobileNumber(mobile: mobileTextField.text!) == false{
                 mobileTextField.layer.borderWidth = 1.2
                 mobileTextField.layer.borderColor = UIColor.red.cgColor
-                msg = msg + "mobile number is invalid. \n"
+                msg = msg + "mobile number is invalid, mobile number must contains 10 digit \n"
             }
             if Validation.isValidAmenities(amenities: amminitiesTextField.text!) == false{
                 amminitiesTextField.layer.borderWidth = 1.2
