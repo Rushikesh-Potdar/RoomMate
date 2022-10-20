@@ -14,6 +14,7 @@ import FirebaseStorage
 
 class PostViewModel{
     let db = Firestore.firestore()
+    let firebaseAuth = Auth.auth()
     
     func getAllPost(complition : @escaping ([Post])->()){
         let ref = db.collection("Posts")
@@ -118,6 +119,13 @@ class PostViewModel{
                 print(error?.localizedDescription)
                 complition(image!, error!)
             }
+        }
+    }
+    func logout(){
+        do{
+            try firebaseAuth.signOut()
+        }catch let signoutError as NSError{
+            print("Error signing out: %@", signoutError)
         }
     }
 }

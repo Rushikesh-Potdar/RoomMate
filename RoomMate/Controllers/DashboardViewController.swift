@@ -8,7 +8,7 @@
 import UIKit
 
 class DashboardViewController: UIViewController {
-
+let postVM = PostViewModel()
     @IBOutlet weak var room: UIButton!
     @IBOutlet weak var post: UIButton!
     @IBOutlet weak var logo: UIImageView!
@@ -33,8 +33,13 @@ class DashboardViewController: UIViewController {
         let myPostBtn = UIBarButtonItem(image: UIImage(systemName: "pin.circle"), style: .plain, target: self, action: #selector(goToPostListVC))
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.orange
         self.navigationItem.rightBarButtonItem?.isEnabled = true
-        self.navigationItem.rightBarButtonItem = myPostBtn
+        //self.navigationItem.rightBarButtonItem = myPostBtn
+        let logOutBtn = UIBarButtonItem(image: UIImage(systemName: "power"), style: .plain, target: self, action: #selector(logout))
+           self.navigationItem.rightBarButtonItem?.tintColor = UIColor.orange
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
+        self.navigationItem.rightBarButtonItems = [logOutBtn,myPostBtn]
         self.navigationItem.setHidesBackButton(true, animated: false)
+        
 //        let toolBar = UIToolbar();
 //        toolBar.barStyle = UIBarStyle.default
 //        toolBar.isTranslucent = true
@@ -46,6 +51,10 @@ class DashboardViewController: UIViewController {
         let listVC = storyboard?.instantiateViewController(withIdentifier: "PostListController") as! PostListController
         listVC.isFromMyPost = true
         navigationController?.pushViewController(listVC, animated: true)
+    }
+    @objc func logout(){
+        postVM.logout()
+        UserDefaults.standard.set(false, forKey: "isLogin")
     }
     @IBAction func findARoomTapped(_ sender: UIButton) {
         guard let postListVC = storyboard?.instantiateViewController(withIdentifier: "PostListController") as? PostListController else{return}

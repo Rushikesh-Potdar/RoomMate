@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
         loader.startAnimatngLoader()
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { authResult, error in
             if error == nil{
+                UserDefaults.standard.set(true, forKey: "isLogin")
                 self.loader.stopAnimatingLoader()
                 guard let dashboardVC = self.storyboard?.instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController else{return}
                 self.navigationController?.pushViewController(dashboardVC, animated: true)
