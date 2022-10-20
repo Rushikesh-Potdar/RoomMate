@@ -20,15 +20,6 @@ class PostListController: UIViewController {
         super.viewDidLoad()
         postTable.delegate = self
         postTable.dataSource = self
-        let myPostBtn = UIBarButtonItem(title: "My Posts", style: .done, target: self, action: #selector(self.goToPostListVC))
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.orange
-        self.navigationItem.rightBarButtonItem?.isEnabled = true
-        self.navigationItem.rightBarButtonItems = [myPostBtn]
-    }
-    @objc func goToPostListVC(){
-//        let listVC = storyboard?.instantiateViewController(withIdentifier: "PostListController") as! PostListController
-//        listVC.isFromMyPost = true
-//        navigationController?.pushViewController(listVC, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,6 +71,9 @@ extension PostListController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailVC = storyboard?.instantiateViewController(withIdentifier: "DetailPostController") as? DetailPostController else {return}
+        detailVC.post = posts[indexPath.row]
+        navigationController?.pushViewController(detailVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

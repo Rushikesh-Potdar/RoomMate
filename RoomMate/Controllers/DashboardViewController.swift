@@ -55,8 +55,11 @@ let postVM = PostViewModel()
     @objc func logout(){
         postVM.logout()
         UserDefaults.standard.set(false, forKey: "isLogin")
+        removeAllPreviousControllers()
     }
+    
     @IBAction func findARoomTapped(_ sender: UIButton) {
+        
         guard let postListVC = storyboard?.instantiateViewController(withIdentifier: "PostListController") as? PostListController else{return}
         navigationController?.pushViewController(postListVC, animated: true)
     }
@@ -64,6 +67,19 @@ let postVM = PostViewModel()
     @IBAction func addAPostTapped(_ sender: Any) {
         guard let postViewVC = storyboard?.instantiateViewController(withIdentifier: "PostViewController") as? PostViewController else{return}
         navigationController?.pushViewController(postViewVC, animated: true)
+    }
+    
+    
+    func removeAllPreviousControllers(){
+        let loginVC = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        navigationController?.pushViewController(loginVC, animated: true)
+        
+        guard let navigationController = self.navigationController else { return }
+        var navigationArray = navigationController.viewControllers // To get all UIViewController stack as Array
+        let temp = navigationArray.last
+        navigationArray.removeAll()
+        navigationArray.append(temp!) //To remove all previous UIViewController except the last one
+        self.navigationController?.viewControllers = navigationArray
     }
 
 }

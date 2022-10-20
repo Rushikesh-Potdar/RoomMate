@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window?.rootViewController = navcontroller
             self.window?.makeKeyAndVisible()
         }else{
-            
+            makeLoginVCAsRootVC()
         }
         guard let _ = (scene as? UIWindowScene) else { return }
     }
@@ -60,6 +60,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
     
-    
+    func makeLoginVCAsRootVC(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        let navcontroller = UINavigationController(rootViewController: loginVC)
+        navcontroller.navigationBar.tintColor = #colorLiteral(red: 0.9197941422, green: 0.4586123228, blue: 0.2474143505, alpha: 1)
+        self.window?.rootViewController = navcontroller
+        self.window?.makeKeyAndVisible()
+        
+    }
 }
 

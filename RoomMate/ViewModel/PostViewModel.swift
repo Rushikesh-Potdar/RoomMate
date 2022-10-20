@@ -107,16 +107,17 @@ class PostViewModel{
     func downloadImage(with url : String, complition : @escaping (UIImage, Error?)->()) {
         let image = UIImage(named: "CorrptedImage")
         let storage = Storage.storage()
-        let fsReferance = storage.reference(forURL:"https://firebasestorage.googleapis.com/v0/b/roommate-3dfa6.appspot.com/o/Photos%2FFF60C403-AAB4-4B7A-B013-07FA0A299DA5.jpeg?alt=media&token=5e953401-ea14-4ba8-8cc1-9d1f8f17f93d")
+//        let fsReferance = storage.reference(forURL:"https://firebasestorage.googleapis.com/v0/b/roommate-3dfa6.appspot.com/o/Photos%2FFF60C403-AAB4-4B7A-B013-07FA0A299DA5.jpeg?alt=media&token=5e953401-ea14-4ba8-8cc1-9d1f8f17f93d")
+        let fsReferance = storage.reference(forURL:url)
         fsReferance.getData(maxSize: 3 * 1024 * 1024) { imageData, error in
             if error == nil
             {
-                print(imageData)
+                //print(imageData)
                 complition(UIImage(data: imageData!)!, nil)
             }
             else
             {
-                print(error?.localizedDescription)
+                //print(error?.localizedDescription)
                 complition(image!, error!)
             }
         }
