@@ -34,6 +34,7 @@ class DashboardViewController: UIViewController {
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.orange
         self.navigationItem.rightBarButtonItem?.isEnabled = true
         self.navigationItem.rightBarButtonItem = myPostBtn
+        self.navigationItem.setHidesBackButton(true, animated: false)
 //        let toolBar = UIToolbar();
 //        toolBar.barStyle = UIBarStyle.default
 //        toolBar.isTranslucent = true
