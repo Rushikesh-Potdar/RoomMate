@@ -996,18 +996,31 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="335" height="175"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VJz-cS-eto">
-                                                                    <rect key="frame" x="16" y="11" width="303" height="153"/>
-                                                                </imageView>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pbs-n6-4wu" userLabel="containerView">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="175"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VJz-cS-eto">
+                                                                            <rect key="frame" x="5" y="5" width="325" height="165"/>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="trailing" secondItem="VJz-cS-eto" secondAttribute="trailing" constant="5" id="8Vn-BV-KWp"/>
+                                                                        <constraint firstItem="VJz-cS-eto" firstAttribute="top" secondItem="pbs-n6-4wu" secondAttribute="top" constant="5" id="VlL-0g-vln"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="VJz-cS-eto" secondAttribute="bottom" constant="5" id="g2g-My-kdX"/>
+                                                                        <constraint firstItem="VJz-cS-eto" firstAttribute="leading" secondItem="pbs-n6-4wu" secondAttribute="leading" constant="5" id="h5D-e3-v00"/>
+                                                                    </constraints>
+                                                                </view>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="bottomMargin" secondItem="VJz-cS-eto" secondAttribute="bottom" id="2co-un-Jm5"/>
-                                                                <constraint firstAttribute="trailingMargin" secondItem="VJz-cS-eto" secondAttribute="trailing" id="Ygy-Cy-zfO"/>
-                                                                <constraint firstItem="VJz-cS-eto" firstAttribute="leading" secondItem="109-jm-8Ib" secondAttribute="leadingMargin" id="hKV-mK-XQL"/>
-                                                                <constraint firstItem="VJz-cS-eto" firstAttribute="top" secondItem="109-jm-8Ib" secondAttribute="topMargin" id="tlm-m8-kR0"/>
+                                                                <constraint firstItem="pbs-n6-4wu" firstAttribute="top" secondItem="109-jm-8Ib" secondAttribute="top" id="HeM-7S-8gD"/>
+                                                                <constraint firstItem="pbs-n6-4wu" firstAttribute="leading" secondItem="109-jm-8Ib" secondAttribute="leading" id="JBM-IS-Xns"/>
+                                                                <constraint firstAttribute="trailing" secondItem="pbs-n6-4wu" secondAttribute="trailing" id="bRe-NI-HAS"/>
+                                                                <constraint firstAttribute="bottom" secondItem="pbs-n6-4wu" secondAttribute="bottom" id="w9Q-mK-QkA"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
                                                         <connections>
+                                                            <outlet property="containerView" destination="pbs-n6-4wu" id="spp-hJ-orv"/>
                                                             <outlet property="singleImageView" destination="VJz-cS-eto" id="q00-fZ-ydq"/>
                                                         </connections>
                                                     </tableViewCell>

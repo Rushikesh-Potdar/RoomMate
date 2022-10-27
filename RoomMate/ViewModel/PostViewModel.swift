@@ -70,7 +70,7 @@ class PostViewModel{
         }
     }
     
-    func uploadImage(selectedImage : UIImage, vc : UIViewController, complition : @escaping (String?, Error?)->()) {
+    func uploadImage(selectedImage : UIImage, vc : UIViewController, complition : @escaping (String?, String?, Error?)->()) {
         let storage = Storage.storage()
         let randomUUID = UUID.init().uuidString
         let storageRef = storage.reference(withPath: "Photos/").child("\(randomUUID).jpeg")
@@ -86,13 +86,13 @@ class PostViewModel{
                 storageRef.downloadURL { url, error in
                     if error == nil{
                         let urlString = url?.absoluteString
-                        complition(urlString, nil)
+                        complition(urlString, "\(randomUUID).jpeg", nil)
                     }
                 }
                 alert.dismiss(animated: true, completion: nil)
             }else{
                 print("error occured while uploading image\(String(describing: error?.localizedDescription))")
-                complition(nil, error)
+                complition(nil, nil, error)
             }
         }
         
@@ -102,6 +102,20 @@ class PostViewModel{
         alert.addAction(cancelUploading)
         vc.present(alert, animated: true)
         
+    }
+    
+    func deleteImage(names : [String]){
+        let storage = Storage.storage()
+        for name in names{
+            let storageRef = storage.reference(withPath: "Photos/").child(name)
+            storageRef.delete { err in
+                if let e = err{
+                    print(e.localizedDescription)
+                }else{
+                    print("file deleted successfully")
+                }
+            }
+        }
     }
     
     func downloadImage(with url : String, complition : @escaping (UIImage, Error?)->()) {

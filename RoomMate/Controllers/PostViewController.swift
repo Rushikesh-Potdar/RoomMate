@@ -31,6 +31,8 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     let imagePicker = UIImagePickerController()
     var phototUrls : [String] = []
     var photos : [UIImage] = []
+    var imageNames : [String] = []
+    var isPosted : Bool = false
     
     @IBOutlet weak var pickPhotoBtnOutlet: UIButton!
     @IBOutlet weak var viewPhotoBtnOutlet: UIButton!
@@ -58,10 +60,12 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         navigationController?.pushViewController(photoVC, animated: true)
     }
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
+        postVM.deleteImage(names: imageNames)
         navigationController?.popViewController(animated: true)
     }
     @IBAction func postButtonPressed(_ sender: UIButton) {
         checkInputs()
+        navigationController?.popViewController(animated: true)
     }
     
     let stateList = ["- State -","MH", "GA", "GJ", "MP", "UP", "DL", "KL", "KA"]
@@ -72,6 +76,17 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        if !isPosted {
+            // new record is not posted yet
+            postVM.deleteImage(names: imageNames)
+        }else{
+            
+        }
     }
     
     func setup()
@@ -139,10 +154,13 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
                     print("new record has been added sucessfully...")
                 }else{
                     print("something went wrong...!")
+                    CustomAlert.openAlert(title: "Opps", message: "something went wrong...!", actions: [UIAlertAction(title: "Retry!", style: .default)], controller: self)
                 }
             }
+            isPosted = true
             
         }else{
+            isPosted = false
             if Validation.isValidAptName(aptname: aptNameTextField.text!) == false{
                 aptNameTextField.layer.borderWidth = 1.2
                 aptNameTextField.layer.borderColor = UIColor.red.cgColor
@@ -304,10 +322,11 @@ extension PostViewController: UIImagePickerControllerDelegate, UINavigationContr
         guard let selectedImage = info[.originalImage] as? UIImage else{return}
         
         dismiss(animated: true, completion: nil)
-        postVM.uploadImage(selectedImage: selectedImage, vc: self) { urlString, error in
+        postVM.uploadImage(selectedImage: selectedImage, vc: self) { urlString, imageName, error in
             if error == nil{
                 self.phototUrls.append(urlString!)
                 self.photos.append(selectedImage)
+                self.imageNames.append(imageName!)
             }
         }
         

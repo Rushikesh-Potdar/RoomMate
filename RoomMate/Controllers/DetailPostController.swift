@@ -22,12 +22,20 @@ class DetailPostController: UIViewController {
     
     var post : Post?
     private var photoArr : [String] = []
+    private var photos : [UIImage] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         photoTableView.delegate = self
         photoTableView.dataSource = self
         updateUI()
+        for imageurl in photoArr{
+            PostViewModel().downloadImage(with: imageurl) { myimage, err in
+                self.photos.append(myimage)
+                self.photoTableView.reloadData()
+            }
+        }
+        
     }
 
     func updateUI(){
@@ -47,16 +55,23 @@ class DetailPostController: UIViewController {
 extension DetailPostController : UITableViewDelegate,UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return photoArr.count
+        return photos.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoDetailCell", for: indexPath) as? PhotoDetailCell else {return UITableViewCell()}
-        cell.singleImageView.image = UIImage(named: "CorrptedImage")
-        PostViewModel().downloadImage(with: photoArr[indexPath.row]) { myimage, err in
-                cell.singleImageView.image = myimage
-        }
+        //cell.singleImageView.image = UIImage(named: "CorrptedImage")
+        cell.singleImageView.image = photos[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let image = photos[indexPath.row]
+        let ratio = image.size.width / image.size.height
+        print(ratio)
+        print("height * ratio is \(image.size.height / ratio)")
+        print("screen width / ratio is \(tableView.frame.size.width / ratio)")
+        return tableView.frame.size.width / ratio
     }
 
 

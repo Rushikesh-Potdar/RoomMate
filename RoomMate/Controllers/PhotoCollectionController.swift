@@ -23,13 +23,23 @@ class PhotoCollectionController: UIViewController {
         super.viewDidLoad()
         photoCollection.delegate = self
         photoCollection.dataSource = self
+        if photos.isEmpty{
+            photoCollection.isHidden = true
+            let myLabel = UILabel(frame: CGRect(x: (self.view.frame.size.width / 2) - 50 , y: (self.view.frame.size.height / 2) - 10 , width: 100, height: 20))
+            myLabel.textAlignment = .center
+            myLabel.text = "No Photos..."
+            view.addSubview(myLabel)
+        }
+        else{
+            photoCollection.isHidden = false
+        }
     }
 }
 
 extension PhotoCollectionController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 14
+        return photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -39,7 +49,7 @@ extension PhotoCollectionController: UICollectionViewDelegate, UICollectionViewD
         cell.photo.translatesAutoresizingMaskIntoConstraints = false
         cell.photo.widthAnchor.constraint(equalToConstant: cellWidth).isActive = true
         cell.photo.heightAnchor.constraint(equalToConstant: cellWidth).isActive = true
-        cell.photo.image = UIImage(named: "pexels-pixabay-60597")
+        cell.photo.image = photos[indexPath.row]
         cell.layer.borderWidth = 2
         cell.layer.borderColor = UIColor.gray.cgColor
         return cell
