@@ -15,7 +15,12 @@ import FirebaseStorage
 class PostViewModel{
     let db = Firestore.firestore()
     let firebaseAuth = Auth.auth()
-    
+    var currentUserEmail : String?{
+        get{
+            guard let email = Auth.auth().currentUser?.email! else {return nil}
+            return email
+        }
+    }
     func getAllPost(complition : @escaping ([Post])->()){
         let ref = db.collection("Posts")
         ref.getDocuments { querySnapshot, err in
@@ -52,7 +57,9 @@ class PostViewModel{
             let monthlyrent = post["monthly_rent"] as! String
             let amenities = post["amenities"] as! String
             let photo_urls = post["photos_url"] as! [String]
-            posts.append(Post(appartmentName: aptName, amenities: amenities, address: addressLineOne, city: city, state: state, pincode: pincode, existingRoommates: extRoom, requiredRoommates: reqRoom, monthlyRent: monthlyrent, photos: photo_urls, mobile: "888888888", email: "example@gmail.com", time: Date.now))
+            let mobile = post["mobile"] as! String
+            let email = post["email"] as! String
+            posts.append(Post(appartmentName: aptName, amenities: amenities, address: addressLineOne, city: city, state: state, pincode: pincode, existingRoommates: extRoom, requiredRoommates: reqRoom, monthlyRent: monthlyrent, photos: photo_urls, mobile: mobile, email: email, time: Date.now))
         }
         
         return posts

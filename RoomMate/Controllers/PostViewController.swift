@@ -26,6 +26,8 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     @IBOutlet weak var existingRoommateTextField: UITextField!
     @IBOutlet weak var requiredRoommateTextField: UITextField!
     
+    var post : Post?
+    
     let postVM = PostViewModel()
     let storage = Storage.storage()
     let imagePicker = UIImagePickerController()
@@ -76,6 +78,11 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        if let post = post {
+            aptNameTextField.text = post.appartmentName
+        }else{
+            
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

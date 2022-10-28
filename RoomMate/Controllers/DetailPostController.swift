@@ -19,15 +19,23 @@ class DetailPostController: UIViewController {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var pincodeLabel: UILabel!
     @IBOutlet weak var amminitiesLabel: UILabel!
-    
+    @IBOutlet weak var updateButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var buttonStack: UIStackView!
     var post : Post?
     private var photoArr : [String] = []
     private var photos : [UIImage] = []
+    let postVM = PostViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         photoTableView.delegate = self
         photoTableView.dataSource = self
+        updateButton.layer.cornerRadius = 25
+        deleteButton.layer.cornerRadius = 25
+        print(postVM.currentUserEmail!)
+        print(post!.email)
+        checkWhoIsLogin()
         updateUI()
         for imageurl in photoArr{
             PostViewModel().downloadImage(with: imageurl) { myimage, err in
@@ -50,6 +58,25 @@ class DetailPostController: UIViewController {
         amminitiesLabel.text = post.amenities
         photoArr.append(contentsOf: post.photos)
     }
+    
+    func checkWhoIsLogin(){
+        if postVM.currentUserEmail! == post!.email{
+        }else{
+            buttonStack.translatesAutoresizingMaskIntoConstraints = false
+            buttonStack.heightAnchor.constraint(equalToConstant: 0.0).isActive=true
+            updateButton.isHidden = true
+            deleteButton.isHidden = true
+        }
+    }
+    
+    @IBAction func updateButtonTapped(_ sender: Any) {
+        guard let postViewVC = storyboard?.instantiateViewController(withIdentifier: "PostViewController") as? PostViewController else{return}
+        postViewVC.post = post
+        navigationController?.pushViewController(postViewVC, animated: true)
+    }
+    
+    @IBAction func deleteButtonTapped(_ sender: Any) {
+    }
 }
 
 extension DetailPostController : UITableViewDelegate,UITableViewDataSource
@@ -68,9 +95,9 @@ extension DetailPostController : UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let image = photos[indexPath.row]
         let ratio = image.size.width / image.size.height
-        print(ratio)
-        print("height * ratio is \(image.size.height / ratio)")
-        print("screen width / ratio is \(tableView.frame.size.width / ratio)")
+//        print(ratio)
+//        print("height * ratio is \(image.size.height / ratio)")
+//        print("screen width / ratio is \(tableView.frame.size.width / ratio)")
         return tableView.frame.size.width / ratio
     }
 
