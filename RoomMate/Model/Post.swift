@@ -21,6 +21,7 @@ struct Post{
     let mobile : String
     let email : String
     let time : Date
+    var documentID = ""
     var fullAddress : String {
         get{
             return address + ", " + city + ", " + state + ", " + pincode

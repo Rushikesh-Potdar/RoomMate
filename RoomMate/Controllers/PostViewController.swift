@@ -66,7 +66,7 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         navigationController?.popViewController(animated: true)
     }
     @IBAction func postButtonPressed(_ sender: UIButton) {
-        checkInputs()
+        checkInputs(currentTitle: sender.currentTitle ?? "Post")
         navigationController?.popViewController(animated: true)
     }
     
@@ -80,6 +80,17 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         setup()
         if let post = post {
             aptNameTextField.text = post.appartmentName
+            addressTextField.text = post.address
+            mobileTextField.text = post.mobile
+            pincodeTextField.text = post.pincode
+            existingRoommateTextField.text = post.existingRoommates
+            requiredRoommateTextField.text = post.requiredRoommates
+            monthlyRentTextField.text = post.monthlyRent
+            amminitiesTextField.text = post.amenities
+            postBtnOutlet.setTitle("Update", for: .normal)
+            self.title = "Update"
+            //postBtnOutlet.titleLabel?.font = .systemFont(ofSize: 12, weight: .heavy)
+            //phototUrls = post.photos
         }else{
             
         }
@@ -146,7 +157,7 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         UIExtentions.roundTextFieldWithShadow(textField: monthlyRentTextField)
     }
     
-    func checkInputs(){
+    func checkInputs(currentTitle : String){
         var msg = ""
         if Validation.isValidAptName(aptname: aptNameTextField.text!) && Validation.isValidPincode(pincode: pincodeTextField.text!) && Validation.isValidAddress(address: addressTextField.text!) && Validation.isValidMobileNumber(mobile: mobileTextField.text!) && Validation.isValidAmenities(amenities: amminitiesTextField.text!){
             
@@ -156,14 +167,20 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
             let email = Auth.auth().currentUser?.email!
             print(email!)
             
-            postVM.addNewPost(post: Post(appartmentName: aptNameTextField.text!, amenities: amminitiesTextField.text!, address: addressTextField.text!, city: cityTextField.text!, state: stateTextField.text!, pincode: pincodeTextField.text!, existingRoommates: existingRoommateTextField.text!, requiredRoommates: requiredRoommateTextField.text!, monthlyRent: monthlyRentTextField.text!, photos: phototUrls, mobile: mobileTextField.text!, email: email!, time: date!)) { done in
-                if done{
-                    print("new record has been added sucessfully...")
-                }else{
-                    print("something went wrong...!")
-                    CustomAlert.openAlert(title: "Opps", message: "something went wrong...!", actions: [UIAlertAction(title: "Retry!", style: .default)], controller: self)
+            if currentTitle == "Update"{
+                postVM.updatePost(for: post!.documentID, with: Post(appartmentName: aptNameTextField.text!, amenities: amminitiesTextField.text!, address: addressTextField.text!, city: cityTextField.text!, state: stateTextField.text!, pincode: pincodeTextField.text!, existingRoommates: existingRoommateTextField.text!, requiredRoommates: requiredRoommateTextField.text!, monthlyRent: monthlyRentTextField.text!, photos: phototUrls, mobile: mobileTextField.text!, email: email!, time: date!))
+                removeAllPreviousControllers()
+            }else{
+                postVM.addNewPost(post: Post(appartmentName: aptNameTextField.text!, amenities: amminitiesTextField.text!, address: addressTextField.text!, city: cityTextField.text!, state: stateTextField.text!, pincode: pincodeTextField.text!, existingRoommates: existingRoommateTextField.text!, requiredRoommates: requiredRoommateTextField.text!, monthlyRent: monthlyRentTextField.text!, photos: phototUrls, mobile: mobileTextField.text!, email: email!, time: date!)) { done in
+                    if done{
+                        print("new record has been added sucessfully...")
+                    }else{
+                        print("something went wrong...!")
+                        CustomAlert.openAlert(title: "Opps", message: "something went wrong...!", actions: [UIAlertAction(title: "Retry!", style: .default)], controller: self)
+                    }
                 }
             }
+            
             isPosted = true
             
         }else{
@@ -207,6 +224,18 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
             let action = UIAlertAction(title: "Ok", style: .default)
             CustomAlert.openAlert(title: "Oops", message: msg, actions: [action], controller: self)
         }
+    }
+    
+    func removeAllPreviousControllers(){
+        let loginVC = storyboard?.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
+        navigationController?.pushViewController(loginVC, animated: true)
+        
+        guard let navigationController = self.navigationController else { return }
+        var navigationArray = navigationController.viewControllers // To get all UIViewController stack as Array
+        let temp = navigationArray.last
+        navigationArray.removeAll()
+        navigationArray.append(temp!) //To remove all previous UIViewController except the last one
+        self.navigationController?.viewControllers = navigationArray
     }
     
 }

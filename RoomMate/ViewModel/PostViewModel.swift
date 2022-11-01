@@ -32,17 +32,6 @@ class PostViewModel{
         }
     }
     
-    func addNewPost(post : Post,complition:@escaping (Bool)->()){
-        db.collection("Posts").addDocument(data: ["address" : post.address, "amenities" : post.amenities, "apt_name" : post.appartmentName, "city" : post.city, "ext_roommates" : post.existingRoommates, "req_roommates" : post.requiredRoommates, "monthly_rent" : post.monthlyRent, "photos_url" : post.photos, "pincode" : post.pincode, "state" : post.state, "mobile" : post.mobile, "email" : post.email]) { err in
-            if err == nil{
-                //print("record has been added successfuly over the FB")
-                complition(true)
-            }else{
-                complition(false)
-            }
-        }
-    }
-    
     private func parsData(result : [QueryDocumentSnapshot]) -> [Post]{
         
         var posts : [Post] = []
@@ -59,11 +48,26 @@ class PostViewModel{
             let photo_urls = post["photos_url"] as! [String]
             let mobile = post["mobile"] as! String
             let email = post["email"] as! String
-            posts.append(Post(appartmentName: aptName, amenities: amenities, address: addressLineOne, city: city, state: state, pincode: pincode, existingRoommates: extRoom, requiredRoommates: reqRoom, monthlyRent: monthlyrent, photos: photo_urls, mobile: mobile, email: email, time: Date.now))
+            let dcID = post["dcId"] as! String
+            posts.append(Post(appartmentName: aptName, amenities: amenities, address: addressLineOne, city: city, state: state, pincode: pincode, existingRoommates: extRoom, requiredRoommates: reqRoom, monthlyRent: monthlyrent, photos: photo_urls, mobile: mobile, email: email, time: Date.now, documentID: dcID))
         }
         
         return posts
     }
+    
+    func addNewPost(post : Post,complition:@escaping (Bool)->()){
+        let document = db.collection("Posts").document()
+        document.setData(["dcId": document.documentID, "address" : post.address, "amenities" : post.amenities, "apt_name" : post.appartmentName, "city" : post.city, "ext_roommates" : post.existingRoommates, "req_roommates" : post.requiredRoommates, "monthly_rent" : post.monthlyRent, "photos_url" : post.photos, "pincode" : post.pincode, "state" : post.state, "mobile" : post.mobile, "email" : post.email]) { err in
+            if err == nil{
+                //print("record has been added successfuly over the FB")
+                complition(true)
+            }else{
+                complition(false)
+            }
+        }
+    }
+    
+    
     
     func getCurrentUserPosts(complition : @escaping ([Post])->()){
         guard let email = Auth.auth().currentUser?.email! else {return}
@@ -149,5 +153,31 @@ class PostViewModel{
         }catch let signoutError as NSError{
             print("Error signing out: %@", signoutError)
         }
+    }
+    /*
+     let addressLineOne =  post["address"] as! String
+     let city = post["city"] as! String
+     let state = post["state"] as! String
+     let pincode = post["pincode"] as! String
+     let aptName = post["apt_name"] as! String
+     let extRoom = post["ext_roommates"] as! String
+     let reqRoom = post["req_roommates"] as! String
+     let monthlyrent = post["monthly_rent"] as! String
+     let amenities = post["amenities"] as! String
+     let photo_urls = post["photos_url"] as! [String]
+     let mobile = post["mobile"] as! String
+     let email = post["email"] as! String
+     let dcID = post["dcId"] as! String
+     */
+    func updatePost(for documentID : String, with newData : Post){
+        let ref = db.collection("Posts")
+        ref.document(documentID).updateData(["address" : newData.address, "amenities" : newData.amenities, "apt_name" : newData.appartmentName, "ext_roommates" : newData.existingRoommates, "req_roommates" : newData.requiredRoommates, "monthly_rent" : newData.monthlyRent, "photos_url" : newData.photos, "pincode" : newData.pincode, "mobile" : newData.mobile]) { err in
+            if let er = err{
+                print("Error updating document \(er.localizedDescription)")
+            }else{
+                print("updated successfully")
+            }
+        }
+        
     }
 }

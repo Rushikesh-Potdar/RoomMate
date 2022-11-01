@@ -987,7 +987,7 @@
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="edr-8W-7uM">
                                                 <rect key="frame" x="20" y="586" width="335" height="314"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" red="0.89803922179999995" green="0.89803922179999995" blue="0.90588235859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PhotoDetailCell" rowHeight="175" id="7H9-gx-CHn" customClass="PhotoDetailCell" customModule="RoomMate" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="44.5" width="335" height="175"/>
@@ -1059,7 +1059,7 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" red="0.89803922179999995" green="0.89803922179999995" blue="0.90588235859999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="edr-8W-7uM" secondAttribute="bottom" id="0EO-OJ-k14"/>
                                             <constraint firstItem="cnj-RJ-oFz" firstAttribute="top" secondItem="xnt-jq-vTk" secondAttribute="bottom" constant="1" id="2Qk-FT-jFe"/>

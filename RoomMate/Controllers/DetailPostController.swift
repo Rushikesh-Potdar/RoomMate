@@ -61,6 +61,7 @@ class DetailPostController: UIViewController {
     
     func checkWhoIsLogin(){
         if postVM.currentUserEmail! == post!.email{
+            
         }else{
             buttonStack.translatesAutoresizingMaskIntoConstraints = false
             buttonStack.heightAnchor.constraint(equalToConstant: 0.0).isActive=true
@@ -72,6 +73,7 @@ class DetailPostController: UIViewController {
     @IBAction func updateButtonTapped(_ sender: Any) {
         guard let postViewVC = storyboard?.instantiateViewController(withIdentifier: "PostViewController") as? PostViewController else{return}
         postViewVC.post = post
+        
         navigationController?.pushViewController(postViewVC, animated: true)
     }
     
