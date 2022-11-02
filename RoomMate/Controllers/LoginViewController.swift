@@ -39,6 +39,7 @@ class LoginViewController: UIViewController {
         UIExtentions.roundTextFieldWithShadow(textField: emailTextField)
         UIExtentions.roundTextFieldWithShadow(textField: passwordTextField)
         UIExtentions.roundedButtonWithShadow(button: loginButton)
+        self.navigationItem.setHidesBackButton(true, animated: false)
         
     }
     
