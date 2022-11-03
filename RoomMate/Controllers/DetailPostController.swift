@@ -73,6 +73,7 @@ class DetailPostController: UIViewController {
     @IBAction func updateButtonTapped(_ sender: Any) {
         guard let postViewVC = storyboard?.instantiateViewController(withIdentifier: "PostViewController") as? PostViewController else{return}
         postViewVC.post = post
+        postViewVC.photos = photos
         
         navigationController?.pushViewController(postViewVC, animated: true)
     }

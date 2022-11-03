@@ -1204,7 +1204,19 @@
                                                     <rect key="frame" x="8" y="8" width="184" height="184"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Qe-Zl-4Ox">
+                                                    <rect key="frame" x="159.5" y="0.0" width="40.5" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="dQv-de-eNI"/>
+                                                    </constraints>
+                                                    <color key="tintColor" red="0.89019608500000003" green="0.37254902719999999" blue="0.19215688110000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <buttonConfiguration key="configuration" style="plain"/>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="3Qe-Zl-4Ox" secondAttribute="trailing" id="Ek9-79-u31"/>
+                                                <constraint firstItem="3Qe-Zl-4Ox" firstAttribute="top" secondItem="sP3-y5-7i5" secondAttribute="top" id="bvG-c5-box"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="200" height="200"/>
                                         <connections>
