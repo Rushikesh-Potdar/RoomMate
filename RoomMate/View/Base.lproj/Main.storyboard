@@ -1211,6 +1211,9 @@
                                                     </constraints>
                                                     <color key="tintColor" red="0.89019608500000003" green="0.37254902719999999" blue="0.19215688110000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <buttonConfiguration key="configuration" style="plain"/>
+                                                    <connections>
+                                                        <action selector="deleteImageButtonPressed:" destination="OlJ-kO-tVv" eventType="touchUpInside" id="vui-Ie-ZsO"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

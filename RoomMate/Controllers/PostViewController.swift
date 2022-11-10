@@ -35,6 +35,7 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     var photos : [UIImage] = []
     var imageNames : [String] = []
     var isPosted : Bool = false
+    var fromPhotoCollectionController = false
     
     @IBOutlet weak var pickPhotoBtnOutlet: UIButton!
     @IBOutlet weak var viewPhotoBtnOutlet: UIButton!
@@ -59,6 +60,16 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
     @IBAction func viewPhotoButton(_ sender: UIButton) {
         guard let photoVC = storyboard?.instantiateViewController(withIdentifier: "PhotoCollectionController") as? PhotoCollectionController else{return}
         photoVC.photos = photos
+        photoVC.imageNames = imageNames
+        photoVC.phototUrls = phototUrls
+        photoVC.passFlag = { imgs, urls, names in
+            self.photos.removeAll()
+            self.phototUrls.removeAll()
+            self.imageNames.removeAll()
+            self.photos.append(contentsOf: imgs)
+            self.phototUrls.append(contentsOf: urls)
+            self.imageNames.append(contentsOf: names)
+        }
         navigationController?.pushViewController(photoVC, animated: true)
     }
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
@@ -94,17 +105,11 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         }else{
             
         }
+        
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        if !isPosted {
-            // new record is not posted yet
-            postVM.deleteImage(names: imageNames)
-        }else{
-            
-        }
+    @objc func back(sender: UIBarButtonItem) {
+        postVM.deleteImage(names: imageNames)
+        navigationController?.popViewController(animated: true)
     }
     
     func setup()
@@ -134,8 +139,6 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         cityDropdown.alpha = 0.0
         cityDropdown.layer.cornerRadius = 10
         cityDropdown.layer.masksToBounds = true
-        
-        //
         existingRoommateTextField.text = "0"
         requiredRoommateTextField.text = "0"
         emailTextField.text = Auth.auth().currentUser?.email!
@@ -155,6 +158,12 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         UIExtentions.roundTextFieldWithShadow(textField: stateTextField)
         UIExtentions.roundTextFieldWithShadow(textField: amminitiesTextField)
         UIExtentions.roundTextFieldWithShadow(textField: monthlyRentTextField)
+//        self.navigationItem.hidesBackButton = true            let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Bordered, target: self, action: "back:")
+//                    self.navigationItem.leftBarButtonItem = newBackButton
+        
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(image: UIImage(systemName: "arrowshape.turn.up.left.fill"), style: .plain, target: self, action: #selector(back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
     }
     
     func checkInputs(currentTitle : String){

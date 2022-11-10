@@ -19,10 +19,22 @@ class PhotoCollectionController: UIViewController {
     @IBOutlet weak var photoCollection: UICollectionView!
     
     var photos = [UIImage]()
+    var passFlag : (([UIImage], [String], [String])->())?
+    var imageNames = [String]()
+    var phototUrls = [String]()
+    let postVM = PostViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         photoCollection.delegate = self
         photoCollection.dataSource = self
+        checkNumberOfPhotos()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        passFlag?(photos, phototUrls, imageNames)
+    }
+    
+    func checkNumberOfPhotos(){
         if photos.isEmpty{
             photoCollection.isHidden = true
             let myLabel = UILabel(frame: CGRect(x: (self.view.frame.size.width / 2) - 50 , y: (self.view.frame.size.height / 2) - 10 , width: 100, height: 20))
@@ -52,6 +64,14 @@ extension PhotoCollectionController: UICollectionViewDelegate, UICollectionViewD
         cell.photo.image = photos[indexPath.row]
         cell.layer.borderWidth = 2
         cell.layer.borderColor = UIColor.gray.cgColor
+        cell.deleteImageAction = {
+            self.postVM.deleteImage(names: [self.imageNames[indexPath.row]])
+            self.photos.remove(at: indexPath.row)
+            self.imageNames.remove(at: indexPath.row)
+            self.phototUrls.remove(at: indexPath.row)
+            self.photoCollection.reloadData()
+            self.checkNumberOfPhotos()
+        }
         return cell
         
     }
