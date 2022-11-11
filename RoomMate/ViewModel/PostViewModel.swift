@@ -21,6 +21,7 @@ class PostViewModel{
             return email
         }
     }
+    
     func getAllPost(complition : @escaping ([Post])->()){
         let ref = db.collection("Posts")
         ref.getDocuments { querySnapshot, err in
@@ -129,6 +130,22 @@ class PostViewModel{
         }
     }
     
+    func urlToFileName(urls:[String]) -> [String]{
+        var imageNames : [String] = []
+        for url in urls{
+            
+            let Id1 = url.substring(from: url.range(of: "%2F")!.upperBound)
+
+            let final = String(Id1.reversed())
+
+            let f = final.substring(from: final.range(of: "tla?")!.upperBound)
+
+            let fileName = String(f.reversed())
+            imageNames.append(fileName)
+        }
+        return imageNames
+    }
+    
     func downloadImage(with url : String, complition : @escaping (UIImage, Error?)->()) {
         let image = UIImage(named: "CorrptedImage")
         let storage = Storage.storage()
@@ -179,5 +196,17 @@ class PostViewModel{
             }
         }
         
+    }
+    
+    func deletePost(post : Post){
+        let imageNames = urlToFileName(urls: post.photos)
+        deleteImage(names: imageNames)
+        db.collection("Posts").document(post.documentID).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
     }
 }

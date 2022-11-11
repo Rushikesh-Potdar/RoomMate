@@ -74,11 +74,15 @@ class DetailPostController: UIViewController {
         guard let postViewVC = storyboard?.instantiateViewController(withIdentifier: "PostViewController") as? PostViewController else{return}
         postViewVC.post = post
         postViewVC.photos = photos
-        
+        postViewVC.phototUrls = photoArr
+        postViewVC.imageNames = postVM.urlToFileName(urls: post!.photos)
         navigationController?.pushViewController(postViewVC, animated: true)
     }
     
-    @IBAction func deleteButtonTapped(_ sender: Any) {
+    @IBAction func deleteButtonTapped(_ sender: Any){
+        postVM.deletePost(post:post!)
+        
+        navigationController?.popViewController(animated: true)
     }
 }
 

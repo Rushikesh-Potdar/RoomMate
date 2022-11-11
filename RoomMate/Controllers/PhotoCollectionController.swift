@@ -66,6 +66,7 @@ extension PhotoCollectionController: UICollectionViewDelegate, UICollectionViewD
         cell.layer.borderColor = UIColor.gray.cgColor
         cell.deleteImageAction = {
             self.postVM.deleteImage(names: [self.imageNames[indexPath.row]])
+            
             self.photos.remove(at: indexPath.row)
             self.imageNames.remove(at: indexPath.row)
             self.phototUrls.remove(at: indexPath.row)

@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 
 class LoginViewController: UIViewController {
+    
     let loader = Loader(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -16,9 +17,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
+        
         loader.isHidden = false
         self.view.addSubview(loader)
         loader.startAnimatngLoader()
+        
+        // MARK: - Login Functionality with Session Handling
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { authResult, error in
             if error == nil{
                 UserDefaults.standard.set(true, forKey: "isLogin")
@@ -34,24 +38,21 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        emailTextField.text = "rushikesh@gmail.com"
-        passwordTextField.text = "123456"
         UIExtentions.roundTextFieldWithShadow(textField: emailTextField)
         UIExtentions.roundTextFieldWithShadow(textField: passwordTextField)
         UIExtentions.roundedButtonWithShadow(button: loginButton)
         self.navigationItem.setHidesBackButton(true, animated: false)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loader.isHidden = true
     }
-
+    
     @IBAction func forgotPasswordBtnTapped(_ sender: UIButton) {
-//        Auth.auth().sendPasswordReset(withEmail: emailTextField.text!) { error in
-//            print(error?.localizedDescription)
-//        }
+        //        Auth.auth().sendPasswordReset(withEmail: emailTextField.text!) { error in
+        //            print(error?.localizedDescription)
+        //        }
         alertToForgotPassword()
     }
     
@@ -90,7 +91,7 @@ class LoginViewController: UIViewController {
             
         }
                                       
-       ))
+                                     ))
         present(alert, animated: true)
         
     }
