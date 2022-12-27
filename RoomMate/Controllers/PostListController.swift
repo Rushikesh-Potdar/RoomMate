@@ -31,12 +31,25 @@ class PostListController: UIViewController {
             loader.startAnimatngLoader()
             postVM.getCurrentUserPosts { arrayOfPosts in
                 self.posts.removeAll()
-                self.posts.append(contentsOf: arrayOfPosts)
                 self.loader.stopAnimatingLoader()
                 self.loader.isHidden = true
-                DispatchQueue.main.async {
-                    self.postTable.reloadData()
+                
+                if arrayOfPosts.isEmpty{
+                    let label = UILabel(frame: CGRect(x: 0, y: 0, width: 400, height: 21))
+                        label.center = CGPoint(x: 160, y: 285)
+                        label.textAlignment = .center
+                        label.text = "Opps... You have not posted any advertise yet"
+                    label.numberOfLines = 0
+                    self.postTable.isHidden = true
+                        self.view.addSubview(label)
+                }else{
+                    self.posts.append(contentsOf: arrayOfPosts)
+                    self.postTable.isHidden = false
+                    DispatchQueue.main.async {
+                        self.postTable.reloadData()
+                    }
                 }
+                
             }
         }else{
             loader.isHidden = false

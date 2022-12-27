@@ -15,25 +15,35 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var emailErrorLabel: UILabel!
+    @IBOutlet weak var passwordErrorLabel: UILabel!
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         
-        loader.isHidden = false
-        self.view.addSubview(loader)
-        loader.startAnimatngLoader()
+        
         
         // MARK: - Login Functionality with Session Handling
-        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { authResult, error in
-            if error == nil{
-                UserDefaults.standard.set(true, forKey: "isLogin")
-                self.loader.stopAnimatingLoader()
-                guard let dashboardVC = self.storyboard?.instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController else{return}
-                self.navigationController?.pushViewController(dashboardVC, animated: true)
-            }else{
-                print(error?.localizedDescription ?? "error while login")
-                self.showAlert(with: error!.localizedDescription, and: "try again")
+        if Validation.isValidEmail(email: emailTextField.text!) && Validation.isValidPassword(password: passwordTextField.text!){
+            
+            loader.isHidden = false
+            self.view.addSubview(loader)
+            loader.startAnimatngLoader()
+            
+            Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { authResult, error in
+                if error == nil{
+                    UserDefaults.standard.set(true, forKey: "isLogin")
+                    self.loader.stopAnimatingLoader()
+                    guard let dashboardVC = self.storyboard?.instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController else{return}
+                    self.navigationController?.pushViewController(dashboardVC, animated: true)
+                }else{
+                    print(error?.localizedDescription ?? "error while login")
+                    self.showAlert(with: error!.localizedDescription, and: "try again")
+                    self.loader.stopAnimatingLoader()
+                    self.loader.removeFromSuperview()
+                }
             }
         }
+        
     }
     
     override func viewDidLoad() {
@@ -42,6 +52,10 @@ class LoginViewController: UIViewController {
         UIExtentions.roundTextFieldWithShadow(textField: passwordTextField)
         UIExtentions.roundedButtonWithShadow(button: loginButton)
         self.navigationItem.setHidesBackButton(true, animated: false)
+        emailErrorLabel.isHidden = true
+        passwordErrorLabel.isHidden = true
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -110,5 +124,38 @@ extension LoginViewController{
         
         alert2.addAction(action)
         self.present(alert2, animated: true)
+    }
+}
+
+
+extension LoginViewController : UITextFieldDelegate{
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+//        if textField == emailTextField{
+//            emailErrorLabel.isHidden = false
+//            emailErrorLabel.text = "this is a email text field "
+//        }
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        if textField == emailTextField{
+            if Validation.isValidEmail(email: textField.text!){
+                emailErrorLabel.isHidden = true
+                UIExtentions.roundTextFieldWithShadow(textField: emailTextField)
+            }else{
+                emailErrorLabel.isHidden = false
+                UIExtentions.errorTextFieldWithShadow(textField: emailTextField)
+                emailErrorLabel.text = "Please enter valid email"
+            }
+        }else{
+            if Validation.isValidPassword(password: textField.text!){
+                passwordErrorLabel.isHidden = true
+                UIExtentions.roundTextFieldWithShadow(textField: passwordTextField)
+            }else{
+                passwordErrorLabel.isHidden = false
+                UIExtentions.errorTextFieldWithShadow(textField: passwordTextField)
+                passwordErrorLabel.text = "Please enter valid password"
+            }
+        }
     }
 }

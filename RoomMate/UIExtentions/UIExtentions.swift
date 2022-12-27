@@ -29,6 +29,28 @@ class UIExtentions{
         textField.leftViewMode = UITextField.ViewMode.always
     }
     
+    static func errorTextFieldWithShadow(textField : UITextField) {
+        textField.borderStyle = .none
+
+            //To apply corner radius
+        textField.layer.cornerRadius = textField.frame.size.height / 2
+
+            //To apply border
+        textField.layer.borderWidth = 0.50
+        textField.layer.borderColor = UIColor.red.cgColor
+
+            //To apply Shadow
+        textField.layer.shadowOpacity = 1
+        textField.layer.shadowRadius = 3.0
+        textField.layer.shadowOffset = CGSize.zero // Use any CGSize
+        textField.layer.shadowColor = UIColor.gray.cgColor
+
+            //To apply padding
+            let paddingView : UIView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: textField.frame.height))
+        textField.leftView = paddingView
+        textField.leftViewMode = UITextField.ViewMode.always
+    }
+    
     static func counterTextFieldsDropShadow(textField:UITextField){
         textField.borderStyle = .none
 
