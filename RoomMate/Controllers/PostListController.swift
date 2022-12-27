@@ -30,6 +30,7 @@ class PostListController: UIViewController {
             self.view.addSubview(loader)
             loader.startAnimatngLoader()
             postVM.getCurrentUserPosts { arrayOfPosts in
+                self.posts.removeAll()
                 self.posts.append(contentsOf: arrayOfPosts)
                 self.loader.stopAnimatingLoader()
                 self.loader.isHidden = true

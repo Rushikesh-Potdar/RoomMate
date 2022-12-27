@@ -19,6 +19,10 @@ class DetailPostController: UIViewController {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var pincodeLabel: UILabel!
     @IBOutlet weak var amminitiesLabel: UILabel!
+    
+    @IBOutlet weak var existingRoommateLabel: UILabel!
+    @IBOutlet weak var requiredRoommateLabel: UILabel!
+    @IBOutlet weak var monthlyRentLabel: UILabel!
     @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var buttonStack: UIStackView!
@@ -56,6 +60,9 @@ class DetailPostController: UIViewController {
         cityLabel.text = post.city
         pincodeLabel.text = post.pincode
         amminitiesLabel.text = post.amenities
+        existingRoommateLabel.text = post.existingRoommates
+        requiredRoommateLabel.text = post.requiredRoommates
+        monthlyRentLabel.text = post.monthlyRent
         photoArr.append(contentsOf: post.photos)
     }
     

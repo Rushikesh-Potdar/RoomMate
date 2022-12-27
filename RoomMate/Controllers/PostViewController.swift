@@ -73,7 +73,9 @@ class PostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDel
         navigationController?.pushViewController(photoVC, animated: true)
     }
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
+        if postBtnOutlet.currentTitle != "Update"{
         postVM.deleteImage(names: imageNames)
+        }
         navigationController?.popViewController(animated: true)
     }
     @IBAction func postButtonPressed(_ sender: UIButton) {
