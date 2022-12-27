@@ -35,13 +35,16 @@ class PostListController: UIViewController {
                 self.loader.isHidden = true
                 
                 if arrayOfPosts.isEmpty{
-                    let label = UILabel(frame: CGRect(x: 0, y: 0, width: 400, height: 21))
-                        label.center = CGPoint(x: 160, y: 285)
-                        label.textAlignment = .center
-                        label.text = "Opps... You have not posted any advertise yet"
+                    let label = UILabel()
+                    self.view.addSubview(label)
+                    label.translatesAutoresizingMaskIntoConstraints = false
+                    label.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+                    label.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+                    label.textAlignment = .center
+                    label.text = "Opps... You have not posted any advertise yet"
                     label.numberOfLines = 0
                     self.postTable.isHidden = true
-                        self.view.addSubview(label)
+                    self.view.addSubview(label)
                 }else{
                     self.posts.append(contentsOf: arrayOfPosts)
                     self.postTable.isHidden = false
